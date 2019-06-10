@@ -1,11 +1,12 @@
 module.exports = function(grunt) {
 
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.initConfig({
         jasmine: {
             coverage: {
                 src: ['src/main/js/*.js'],
                 options: {
-                    specs: ['src/test/js/*.js'],
+                    specs: ['src/test/js/*Spec.js'],
                     template: require('grunt-template-jasmine-istanbul'),
                     templateOptions: {
                         coverage: 'bin/coverage/coverage.json',
@@ -20,7 +21,5 @@ module.exports = function(grunt) {
                 }
             }
         }
-    }
-
-    grunt.loadNpmTasks('grunt-contrib-jasmine');
+    });
 };
