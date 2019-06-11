@@ -1,7 +1,7 @@
 function toDecimal(roman) {
-    let decimal = 0;
+    var decimal = 0;
 
-    for (let i = 0; i < roman.length; i++) {
+    for (var i = 0; i < roman.length; i++) {
         switch (roman[i]) {
             case 'I':
                 decimal++;

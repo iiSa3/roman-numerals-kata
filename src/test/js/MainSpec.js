@@ -13,7 +13,7 @@ describe("Roman numeral converter", function() {
         });
 
         describe("single character to value equivalent", function() {
-            let characterNumeralMap = [
+            var characterNumeralMap = [
                 {numeral: 'I', value: 1},
                 {numeral: 'V', value: 5},
                 {numeral: 'X', value: 10},
@@ -22,8 +22,8 @@ describe("Roman numeral converter", function() {
                 {numeral: 'D', value: 500},
                 {numeral: 'M', value: 1000},
             ];
-            for (let i = 0; i < characterNumeralMap.length; i++) {
-                let characterNumeral = characterNumeralMap[i];
+            for (var i = 0; i < characterNumeralMap.length; i++) {
+                var characterNumeral = characterNumeralMap[i];
                 it('should convert ' + characterNumeral.numeral + ' to ' + characterNumeral.value, function() {
                     expect(toDecimal(characterNumeral.numeral)).toBe(characterNumeral.value);
                 });
