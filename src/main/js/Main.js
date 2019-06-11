@@ -1,6 +1,8 @@
 function toDecimal(roman) {
     var decimal = 0;
 
+    var order = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
+
     for (var i = 0; i < roman.length; i++) {
         switch (roman[i]) {
             case 'I':
@@ -26,8 +28,12 @@ function toDecimal(roman) {
                 break;
         }
 
-        if(roman[i] !== 'I' && roman[i -1] === 'I') {
-            decimal -= 2;
+        if(i > 0) {
+            var orderPos = order.indexOf(roman[i]);
+            var prevOrderPos = order.indexOf(roman[i-1]);
+            if(orderPos > 0 && orderPos > prevOrderPos) {
+                decimal -= 2 * toDecimal(roman[i-1]);
+            }
         }
     }
     return decimal;

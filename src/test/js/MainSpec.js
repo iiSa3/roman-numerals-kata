@@ -6,9 +6,22 @@ describe("Roman numeral converter", function() {
         it("should convert III to 3", function() {
             expect(toDecimal("III")).toBe(3);
         });
+        it("should convert CDXCIX to 499", function() {
+            expect(toDecimal("CDXCIX")).toBe(499);
+        });
+        
         describe("subtraction", function() {
             it("should convert IV to 4", function() {
                 expect(toDecimal("IV")).toBe(4);
+            });
+            it("should convert IX to 9", function() {
+                expect(toDecimal("IX")).toBe(9);
+            });
+            it("should convert XIV to 14", function() {
+                expect(toDecimal("XIV")).toBe(14);
+            });
+            it("should convert CD to 400", function() {
+                expect(toDecimal("CD")).toBe(400);
             });
         });
 
