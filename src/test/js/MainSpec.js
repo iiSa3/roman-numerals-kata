@@ -72,10 +72,35 @@ describe("Roman numeral converter", function() {
     describe("round trip", function() {
         describe("decimal to numeral to decimal", function() {
             for(var i = 0; i <= 100; i +=3) {
-                it(i + " should remain " + i, function () {
+                it("should let " + i + " remain " + i, function () {
                     expect(toDecimal(toNumeral(i))).toBe(i);
                 });
             }
         });
+
+        describe("numeral to decimal to numeral", function() {
+            var numeralsList = ["I", "V", "X", "VI", "VII", "XII", "CXLVII"];
+            it("should let I remain I", function() {
+                expect(toNumeral(toDecimal("I"))).toBe("I");
+            });
+            it("should let V remain V", function() {
+                expect(toNumeral(toDecimal("V"))).toBe("V");
+            });
+            it("should let IX remain IX", function() {
+                expect(toNumeral(toDecimal("IX"))).toBe("IX");
+            });
+            it("should let VI remain VI", function() {
+                expect(toNumeral(toDecimal("VI"))).toBe("VI");
+            });
+            it("should let VII remain VII", function() {
+                expect(toNumeral(toDecimal("VII"))).toBe("VII");
+            });
+            it("should let XII remain XII", function() {
+                expect(toNumeral(toDecimal("XII"))).toBe("XII");
+            });
+            it("should let CXLVII remain CXLVII", function() {
+                expect(toNumeral(toDecimal("CXLVII"))).toBe("CXLVII");
+            });
+        })
     })
 });
