@@ -63,5 +63,19 @@ describe("Roman numeral converter", function() {
         it("should convert 499 to CDXCIX", function() {
             expect(toNumeral(499)).toBe("CDXCIX");
         });
+
+        it("should convert 148 to CXLVIII", function () {
+            expect(toNumeral(148)).toBe("CXLVIII");
+        })
     });
+
+    describe("round trip", function() {
+        describe("decimal to numeral to decimal", function() {
+            for(var i = 0; i <= 100; i +=3) {
+                it(i + " should remain " + i, function () {
+                    expect(toDecimal(toNumeral(i))).toBe(i);
+                });
+            }
+        });
+    })
 });
