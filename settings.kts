@@ -12,9 +12,23 @@ object Build : BuiltType({
         root(DslContext.settingsRoot)
     }
 
-    triggers {
-        vcs {
-            //
+    steps {
+        script {
+            name = "Install dependencies"
+            scriptContent = """
+                #!/bin/bash
+                npm install
+            """.trimIndent()
         }
+        script {
+            name = "Jasmine"
+            scriptContent = """
+                karma start --single-run --browsers ChromeHeadless
+            """.trimIndent()
+        }
+    }
+
+    triggers {
+        vcs {}
     }
 })
