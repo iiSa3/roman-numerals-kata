@@ -38,3 +38,26 @@ function toDecimal(roman) {
     }
     return decimal;
 }
+
+function toNumeral(decimal) {
+    var order = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
+    var restricted = ["VX"];
+
+    var res = "";
+    for(var i = order.length - 1; i >= 0; i--) {
+        var val = toDecimal(order[i]);
+        var same = false;
+        do {
+            if (val <= decimal) {
+                res += order[i];
+                decimal -= val;
+            } else if (restricted.indexOf(order[i - 1] + order[i]) === -1 && (val = toDecimal(order[i - 1] + order[i])) <= decimal) {
+                res += order[i - 1] + order[i];
+                decimal -= val;
+            } else {
+                same = true;
+            }
+        } while(!same);
+    }
+    return res;
+}

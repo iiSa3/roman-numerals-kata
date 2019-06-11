@@ -9,7 +9,7 @@ describe("Roman numeral converter", function() {
         it("should convert CDXCIX to 499", function() {
             expect(toDecimal("CDXCIX")).toBe(499);
         });
-        
+
         describe("subtraction", function() {
             it("should convert IV to 4", function() {
                 expect(toDecimal("IV")).toBe(4);
@@ -41,6 +41,24 @@ describe("Roman numeral converter", function() {
                     expect(toDecimal(characterNumeral.numeral)).toBe(characterNumeral.value);
                 });
             }
+        });
+    });
+
+    describe("from decimal to numerals", function() {
+        it("should convert 1 to I", function() {
+            expect(toNumeral(1)).toBe("I");
+        });
+        it("should convert 2 to II", function() {
+            expect(toNumeral(2)).toBe("II");
+        });
+        it("should convert 4 to IV", function() {
+            expect(toNumeral(4)).toBe("IV");
+        });
+        it("should convert 5 to V", function() {
+            expect(toNumeral(5)).toBe("V");
+        })
+        it("should convert 10 to X", function() {
+            expect(toNumeral(10)).toBe("X");
         });
     });
 });
