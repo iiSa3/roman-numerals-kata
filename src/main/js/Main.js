@@ -41,7 +41,7 @@ function toDecimal(roman) {
 
 function toNumeral(decimal) {
     var order = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
-    var restricted = ["VX"];
+    var restricted = ["VX", "LC"];
 
     var res = "";
     for(var i = order.length - 1; i >= 0; i--) {
@@ -56,6 +56,13 @@ function toNumeral(decimal) {
                 decimal -= val;
             } else {
                 same = true;
+                for(var x = i - 1; x >= 0; x--) {
+                    if(restricted.indexOf(order[x] + order[i]) === -1 && (val = toDecimal(order[x] + order[i])) <= decimal) {
+                        res += order[x]+ order[i];
+                        decimal -= val;
+                        same = false;
+                    }
+                }
             }
         } while(!same);
     }

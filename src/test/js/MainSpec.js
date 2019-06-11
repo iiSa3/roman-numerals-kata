@@ -60,5 +60,8 @@ describe("Roman numeral converter", function() {
         it("should convert 10 to X", function() {
             expect(toNumeral(10)).toBe("X");
         });
+        it("should convert 499 to CDXCIX", function() {
+            expect(toNumeral(499)).toBe("CDXCIX");
+        });
     });
 });
