@@ -37,6 +37,8 @@ object Build : BuildType({
         root(DslContext.settingsRoot)
     }
 
+    artifactRules = "./tests/jasmine.html"
+
     steps {
         script {
             name = "Install dependencies"
